@@ -1,23 +1,32 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins'), url('./fonts/Poppins-Regular.ttf') format('ttf'); 
+}
+
+/* @font-face {
+  font-family: 'PoppinsBold';
+  src: local('PoppinsBold') url('./fonts/Poppins-Bold.ttf') format('ttf');
+} */
+@tailwind utilities;  
+
+/* @layer base {
+  html {
+    font-family: "poppins", system-ui, sans-serif;
+  }
+} */
 
 @layer components {
-  .dolar-li {
+  .dolar-li-header {
     @apply flex items-center px-2 hover:bg-slate-100 hover:text-black;
   }
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}

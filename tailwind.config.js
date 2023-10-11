@@ -6,7 +6,11 @@ module.exports = {
     "./src/**/*.{html,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Poppins", "sans-serif"],
+      },
+    },
   },
   // plugins: [require("@tailwindcss/forms")], //plugins que instalamos con npm
 };

@@ -1,10 +1,10 @@
 export default function Card({ buy, sale }) {
   return (
-    <article className="card bg-slate-200 shadow-md">
+    <article className="card grid grid-cols-1 gap-4 bg-slate-200 p-4 text-center shadow-md">
       <small>Precio hoy USD/ARS</small>
-      <p> {`$${buy} / $${sale}`}</p>
+      <h3 className=" text-xl"> {`$${buy} / $${sale}`}</h3>
       <div>
-        <button>Report</button>
+        <button className=" rounded-full bg-white p-4">Report</button>
       </div>
     </article>
   );
