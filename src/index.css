@@ -1,22 +1,30 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
-
 
 @tailwind base;
 @tailwind components;
 
 @font-face {
-  font-family: 'Poppins';
-  src: local('Poppins'), url('./fonts/Poppins-Regular.ttf') format('ttf'); 
+  font-family: "Poppins";
+  src:
+    local("Poppins"),
+    url("./fonts/Poppins-Regular.ttf") format("ttf");
 }
 
 /* @font-face {
   font-family: 'PoppinsBold';
   src: local('PoppinsBold') url('./fonts/Poppins-Bold.ttf') format('ttf');
 } */
-@tailwind utilities;  
-
+@tailwind utilities;
+@layer utilities {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    @apply appearance-none;
+  }
+}
 /* @layer base {
   html {
     font-family: "poppins", system-ui, sans-serif;
@@ -27,6 +35,7 @@
   .dolar-li-header {
     @apply flex items-center px-2 hover:bg-slate-100 hover:text-black;
   }
+  .currency-card {
+    @apply grid min-h-[150px] min-w-[200px] max-w-[350px] grid-cols-1 gap-4 rounded-lg p-4 text-center shadow-md;
+  }
 }
-
-

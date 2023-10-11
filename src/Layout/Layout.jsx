@@ -6,7 +6,7 @@ export default function Layout() {
     <div>
       <Header />
       {/* <h2>Hola</h2> */}
-      <main>
+      <main className="m-auto w-10/12 text-center">
         <Outlet />
       </main>
     </div>
