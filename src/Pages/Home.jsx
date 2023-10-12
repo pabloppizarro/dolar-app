@@ -14,9 +14,9 @@ export default function Home() {
     promises.then(async (values) => {
       const blue = await values[0].json();
       const oficial = await values[1].json();
-      blue.name = "DOLÁR BLUE";
+      blue.name = "DÓLAR BLUE";
       setUsd(blue);
-      oficial.name = "DOLÁR OFICIAL";
+      oficial.name = "DÓLAR OFICIAL";
       setUsdOficial(oficial);
       setLoading(false);
     });
