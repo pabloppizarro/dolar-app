@@ -3,7 +3,7 @@ import { useId } from "react";
 export default function Card({ props }) {
   const id = useId();
   return (
-    <article className="currency-card">
+    <article className="currency-card mx-auto my-0 sm:mx-0 ">
       <p>{props.name}</p>
 
       <div className="grid grid-cols-2 justify-center gap-2">
@@ -17,7 +17,7 @@ export default function Card({ props }) {
         </div>
       </div>
       <div>
-        <p className=" rounded-full bg-amber-300 font-bold">
+        <p className=" font-poppinsBold rounded-full bg-amber-300">
           <small>últ. act: </small>
           {props.fecha.split(" ")[1]}
         </p>

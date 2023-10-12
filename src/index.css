@@ -14,10 +14,10 @@
     url("./fonts/Poppins-Regular.ttf") format("ttf");
 }
 
-/* @font-face {
-  font-family: 'PoppinsBold';
-  src: local('PoppinsBold') url('./fonts/Poppins-Bold.ttf') format('ttf');
-} */
+@font-face {
+  font-family: "PoppinsBold";
+  src: local("PoppinsBold") url("./fonts/Poppins-Bold.ttf") format("ttf");
+}
 @tailwind utilities;
 @layer utilities {
   input[type="number"]::-webkit-inner-spin-button,

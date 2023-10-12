@@ -7,32 +7,31 @@ export default function Home() {
   const [usd, setUsd] = useState();
   const [usdOficial, setUsdOficial] = useState();
   useEffect(() => {
-    fetch("http://escuderokevin.com.ar:7070/api/dolarblue")
-      .then((res) => res.json())
-      .then((usd) => {
-        // setLoading(false);
-        usd.name = "DOLÁR BLUE";
-        setUsd(usd);
-      });
-    fetch("http://escuderokevin.com.ar:7070/api/dolaroficial")
-      .then((res) => res.json())
-      .then((usd) => {
-        setLoading(false);
-        usd.name = "DOLÁR OFICIAL";
-        setUsdOficial(usd);
-      });
+    const promises = Promise.all([
+      fetch("http://escuderokevin.com.ar:7070/api/dolarblue"),
+      fetch("http://escuderokevin.com.ar:7070/api/dolaroficial"),
+    ]);
+    promises.then(async (values) => {
+      const blue = await values[0].json();
+      const oficial = await values[1].json();
+      blue.name = "DOLÁR BLUE";
+      setUsd(blue);
+      oficial.name = "DOLÁR OFICIAL";
+      setUsdOficial(oficial);
+      setLoading(false);
+    });
   }, []);
 
   return (
-    <div className="grid gap-4">
-      <h1 className="text-2xl">Simple visor de cotización USD</h1>
+    <div className="mt-4 grid gap-4">
+      <h1 className=" text-2xl">DÓLAR DEL MOMENTO</h1>
       {isLoading ? (
         <section>
           <h1>Loading</h1>
         </section>
       ) : (
         <div className=" grid gap-8">
-          <section className="flex w-full flex-row justify-center gap-4 ">
+          <section className="flex w-full flex-col justify-center gap-4 sm:flex-row ">
             <Card props={usd} />
             <Card props={usdOficial} />
           </section>
