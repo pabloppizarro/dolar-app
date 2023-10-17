@@ -32,7 +32,7 @@ export default function CurrencyConverter({ props }) {
                 } else {
                   setFormatErr(false);
                 }
-                const toBuy = number / props.venta;
+                const toBuy = number / props.sale;
                 setBuy(toBuy.toFixed(2));
               }}
             />
@@ -55,7 +55,7 @@ export default function CurrencyConverter({ props }) {
                   } else {
                     setFormatErr(false);
                   }
-                  const toSell = number * props.compra;
+                  const toSell = number * props.buy;
                   setSell(toSell.toFixed(2));
                 }}
               />
