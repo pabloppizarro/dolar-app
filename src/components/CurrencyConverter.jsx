@@ -32,7 +32,7 @@ export default function CurrencyConverter({ props }) {
                 } else {
                   setFormatErr(false);
                 }
-                const toBuy = number / props.sale;
+                const toBuy = number / props.sell;
                 setBuy(toBuy.toFixed(2));
               }}
             />

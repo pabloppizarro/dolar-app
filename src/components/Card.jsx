@@ -13,7 +13,7 @@ export default function Card({ props }) {
         </div>
         <div className="rounded-lg border p-2">
           <h3 className=" text-xl">VENTA</h3>
-          <p className="text-2xl font-bold"> {`$${props.sale}`}</p>
+          <p className="text-2xl font-bold"> {`$${props.sell}`}</p>
         </div>
       </div>
       <div>
