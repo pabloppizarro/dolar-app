@@ -8,8 +8,8 @@ export default function Home() {
   const [usdOficial, setUsdOficial] = useState();
   useEffect(() => {
     const promises = Promise.all([
-      fetch("http://escuderokevin.com.ar:7070/api/dolarblue"),
-      fetch("http://escuderokevin.com.ar:7070/api/dolaroficial"),
+      fetch("https://dolar.pachu.dev/api/blue-dolarhoy"),
+      fetch("https://dolar.pachu.dev/api/oficial-dolarhoy"),
     ]);
     promises.then(async (values) => {
       const blue = await values[0].json();
