@@ -8,7 +8,7 @@ Main idea was to build a simple app with React. I focused something that I use t
 Here in Argentina we have many types of ways to adquire or buy USD, an official way and a not-official way (blue dollar).
 
 This web app fetch data from this API:  
-[https://github.com/Castrogiovanni20/api-dolar-argentina/](https://github.com/Castrogiovanni20/api-dolar-argentina/)
+[https://dolar.pachu.dev/api/](https://dolar.pachu.dev/api/)
 
 #### Tech Stack:
 
