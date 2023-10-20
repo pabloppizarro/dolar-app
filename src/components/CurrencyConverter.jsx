@@ -17,16 +17,38 @@ export default function CurrencyConverter({ props }) {
         <fieldset className="flex flex-col justify-center gap-4 sm:flex-row">
           <div className="block rounded-lg border bg-[#F5F5F5]  p-4 text-start font-bold hover:border-amber-300">
             <p>Pagás AR$</p>
-            <label>
-              $
+
+            <input
+              className="m-1 h-max appearance-none bg-[#F5F5F5] text-lg  focus:outline-none"
+              name="ars"
+              placeholder="12000"
+              value={sell}
+              type="number"
+              onChange={($event) => {
+                setSell($event.target.value);
+                const number = Number($event.target.value);
+                if (!number) {
+                  setFormatErr(true);
+                  return;
+                } else {
+                  setFormatErr(false);
+                }
+                const toBuy = number / props.sell;
+                setBuy(toBuy.toFixed(2));
+              }}
+            />
+          </div>
+          <div>
+            <div className=" block rounded-lg border bg-[#F5F5F5] p-4 text-start  font-bold hover:border-amber-300">
+              <p>Recibís U$D</p>
+
               <input
-                className="m-1 h-max  appearance-none bg-[#F5F5F5] text-lg  focus:outline-none"
-                name="ars"
+                className="m-1 h-max appearance-none bg-[#F5F5F5] text-lg  focus:outline-none"
+                name="usd"
                 placeholder="12000"
-                value={sell}
-                type="number"
+                value={buy}
                 onChange={($event) => {
-                  setSell($event.target.value);
+                  setBuy($event.target.value);
                   const number = Number($event.target.value);
                   if (!number) {
                     setFormatErr(true);
@@ -34,36 +56,10 @@ export default function CurrencyConverter({ props }) {
                   } else {
                     setFormatErr(false);
                   }
-                  const toBuy = number / props.sell;
-                  setBuy(toBuy.toFixed(2));
+                  const toSell = number * props.buy;
+                  setSell(toSell.toFixed(2));
                 }}
               />
-            </label>
-          </div>
-          <div>
-            <div className=" block rounded-lg border bg-[#F5F5F5] p-4 text-start  font-bold hover:border-amber-300">
-              <p>Recibís U$D</p>
-              <label>
-                $
-                <input
-                  className="m-1 h-max  appearance-none bg-[#F5F5F5] text-lg  focus:outline-none"
-                  name="usd"
-                  placeholder="12000"
-                  value={buy}
-                  onChange={($event) => {
-                    setBuy($event.target.value);
-                    const number = Number($event.target.value);
-                    if (!number) {
-                      setFormatErr(true);
-                      return;
-                    } else {
-                      setFormatErr(false);
-                    }
-                    const toSell = number * props.buy;
-                    setSell(toSell.toFixed(2));
-                  }}
-                />
-              </label>
             </div>
           </div>
         </fieldset>
