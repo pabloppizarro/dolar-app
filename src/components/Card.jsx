@@ -9,11 +9,14 @@ export default function Card({ props }) {
       <div className="grid grid-cols-2 justify-center gap-2">
         <div className="rounded-lg border p-2">
           <h3 className=" content object-fill text-xl">COMPRA</h3>
-          <p className="text-2xl font-bold"> {`$${props.buy}`}</p>
+          <p className="text-2xl font-bold tabular-nums"> {`$${props.buy}`}</p>
         </div>
         <div className="rounded-lg border p-2">
           <h3 className=" text-xl">VENTA</h3>
-          <p className="text-2xl font-bold"> {`$${props.sell}`}</p>
+          <p className="text-2xl font-bold  tabular-nums">
+            {" "}
+            {`$${props.sell}`}
+          </p>
         </div>
       </div>
       <div>

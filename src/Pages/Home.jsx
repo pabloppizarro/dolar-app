@@ -33,11 +33,10 @@ export default function Home() {
         <div className=" grid gap-8">
           <section className="flex w-full flex-col justify-center gap-4 sm:flex-row ">
             <Card props={usd} />
-            <Card  props={usdOficial} />
+            <Card props={usdOficial} />
           </section>
-          <section>
-            <CurrencyConverter props={usd} />
-          </section>
+
+          <CurrencyConverter props={usd} />
         </div>
       )}
     </div>

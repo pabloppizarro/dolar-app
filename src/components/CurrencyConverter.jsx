@@ -5,8 +5,8 @@ export default function CurrencyConverter({ props }) {
   const [buy, setBuy] = useState("");
   const [formatErr, setFormatErr] = useState(false);
   return (
-    <div>
-      <h3>Cálculo valores BLUE</h3>
+    <article className="converter m-auto max-w-[600px] rounded-lg border border-b-slate-400  p-4">
+      <h3 className=" mb-1 text-2xl">Convertidor a U$D BLUE</h3>
       {formatErr ? <p className=" text-rose-500">Formato incorrecto</p> : ""}
       <form
         onSubmit={(e) => {
@@ -15,39 +15,18 @@ export default function CurrencyConverter({ props }) {
         className="grid gap-8"
       >
         <fieldset className="flex flex-col justify-center gap-4 sm:flex-row">
-          <div className="block rounded-lg border bg-[#F5F5F5] p-4  text-start font-bold hover:border-amber-300">
-            <p>Pagás</p>
-            <span>AR$</span>
-            <input
-              className="mt-1 h-max w-full appearance-none bg-[#F5F5F5] text-lg  focus:outline-none"
-              name="ars"
-              placeholder="12000"
-              value={sell}
-              onChange={($event) => {
-                setSell($event.target.value);
-                const number = Number($event.target.value);
-                if (!number) {
-                  setFormatErr(true);
-                  return;
-                } else {
-                  setFormatErr(false);
-                }
-                const toBuy = number / props.sell;
-                setBuy(toBuy.toFixed(2));
-              }}
-            />
-          </div>
-          <div>
-            <div className="block rounded-lg border bg-[#F5F5F5] p-4 text-start  font-bold hover:border-amber-300">
-              <p>Recibís</p>
-              <span>U$D</span>
+          <div className="block rounded-lg border bg-[#F5F5F5]  p-4 text-start font-bold hover:border-amber-300">
+            <p>Pagás AR$</p>
+            <label>
+              $
               <input
-                className="mt-1 h-max w-full appearance-none bg-[#F5F5F5] text-lg  focus:outline-none"
-                name="usd"
+                className="m-1 h-max  appearance-none bg-[#F5F5F5] text-lg  focus:outline-none"
+                name="ars"
                 placeholder="12000"
-                value={buy}
+                value={sell}
+                type="number"
                 onChange={($event) => {
-                  setBuy($event.target.value);
+                  setSell($event.target.value);
                   const number = Number($event.target.value);
                   if (!number) {
                     setFormatErr(true);
@@ -55,10 +34,36 @@ export default function CurrencyConverter({ props }) {
                   } else {
                     setFormatErr(false);
                   }
-                  const toSell = number * props.buy;
-                  setSell(toSell.toFixed(2));
+                  const toBuy = number / props.sell;
+                  setBuy(toBuy.toFixed(2));
                 }}
               />
+            </label>
+          </div>
+          <div>
+            <div className=" block rounded-lg border bg-[#F5F5F5] p-4 text-start  font-bold hover:border-amber-300">
+              <p>Recibís U$D</p>
+              <label>
+                $
+                <input
+                  className="m-1 h-max  appearance-none bg-[#F5F5F5] text-lg  focus:outline-none"
+                  name="usd"
+                  placeholder="12000"
+                  value={buy}
+                  onChange={($event) => {
+                    setBuy($event.target.value);
+                    const number = Number($event.target.value);
+                    if (!number) {
+                      setFormatErr(true);
+                      return;
+                    } else {
+                      setFormatErr(false);
+                    }
+                    const toSell = number * props.buy;
+                    setSell(toSell.toFixed(2));
+                  }}
+                />
+              </label>
             </div>
           </div>
         </fieldset>
@@ -72,7 +77,7 @@ export default function CurrencyConverter({ props }) {
           Limpiar
         </button>
       </form>
-    </div>
+    </article>
   );
 }
 
