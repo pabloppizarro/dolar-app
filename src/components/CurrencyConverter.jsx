@@ -7,7 +7,6 @@ export default function CurrencyConverter({ props }) {
   return (
     <article className="converter m-auto max-w-[600px] rounded-lg border border-b-slate-400  p-4">
       <h3 className=" mb-1 text-2xl">Convertidor a U$D BLUE</h3>
-      {formatErr ? <p className=" text-rose-500">Formato incorrecto</p> : ""}
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -15,7 +14,10 @@ export default function CurrencyConverter({ props }) {
         className="grid gap-8"
       >
         <fieldset className="flex flex-col justify-center gap-4 sm:flex-row">
-          <div className="block rounded-lg border bg-[#F5F5F5]  p-4 text-start font-bold hover:border-amber-300">
+          <div
+            className="block rounded-lg border bg-[#F5F5F5]  p-4 text-start font-bold hover:border-amber-300"
+            style={{ border: formatErr ? "2px solid #F43F5E" : "" }}
+          >
             <p>Pagás AR$</p>
 
             <input
@@ -27,7 +29,7 @@ export default function CurrencyConverter({ props }) {
               onChange={($event) => {
                 setSell($event.target.value);
                 const number = Number($event.target.value);
-                if (!number) {
+                if (!number || number < 0) {
                   setFormatErr(true);
                   return;
                 } else {
@@ -39,7 +41,10 @@ export default function CurrencyConverter({ props }) {
             />
           </div>
           <div>
-            <div className=" block rounded-lg border bg-[#F5F5F5] p-4 text-start  font-bold hover:border-amber-300">
+            <div
+              className=" block rounded-lg border bg-[#F5F5F5] p-4 text-start  font-bold hover:border-amber-300"
+              style={{ border: formatErr ? "2px solid #F43F5E" : "" }}
+            >
               <p>Recibís U$D</p>
 
               <input

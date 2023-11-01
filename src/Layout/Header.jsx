@@ -8,7 +8,7 @@ const navItems = [
 ];
 export default function Header() {
   return (
-    <header className="flex h-full w-auto bg-black px-16 text-center text-white">
+    <header className="flex h-full bg-black px-16 text-center text-white md:w-full">
       <nav className="w-screen">
         <ul className="flex h-10 gap-4 ">
           {navItems.map((item, i) => (
