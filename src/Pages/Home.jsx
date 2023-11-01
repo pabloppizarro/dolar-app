@@ -10,9 +10,9 @@ export default function Home() {
   const [laNacionUSD, setLaNacionUSD] = useState([]);
   useEffect(() => {
     const promises = Promise.all([
-      fetch(`${process.env.REACT_APP_API}/blue-dolarhoy`),
-      fetch(`${process.env.REACT_APP_API}/oficial-dolarhoy`),
-      fetch(`${process.env.REACT_APP_API}/lanacion`),
+      fetch(`${process.env.REACT_APP_API}/blue-dolarhoy`).catch((err) => {}),
+      fetch(`${process.env.REACT_APP_API}/oficial-dolarhoy`).catch((err) => {}),
+      fetch(`${process.env.REACT_APP_API}/lanacion`).catch((err) => []),
     ]);
     promises.then(async (values) => {
       const blue = await values[0].json();
