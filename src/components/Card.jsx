@@ -4,7 +4,8 @@ export default function Card({ props }) {
   const id = useId();
   return (
     <article className="currency-card mx-auto my-0 sm:mx-0 ">
-      <p>{props.name}</p>
+      <h3>{props.house}</h3>
+      <p>{props.title}</p>
 
       <div className="grid grid-cols-2 justify-center gap-2">
         <div className="rounded-lg border p-2">

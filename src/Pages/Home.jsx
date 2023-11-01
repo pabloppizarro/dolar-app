@@ -8,15 +8,13 @@ export default function Home() {
   const [usdOficial, setUsdOficial] = useState();
   useEffect(() => {
     const promises = Promise.all([
-      fetch("https://dolar.pachu.dev/api/blue-dolarhoy"),
-      fetch("https://dolar.pachu.dev/api/oficial-dolarhoy"),
+      fetch(`${process.env.REACT_APP_API}/blue-dolarhoy`),
+      fetch(`${process.env.REACT_APP_API}/oficial-dolarhoy`),
     ]);
     promises.then(async (values) => {
       const blue = await values[0].json();
       const oficial = await values[1].json();
-      blue.name = "DÓLAR BLUE";
       setUsd(blue);
-      oficial.name = "DÓLAR OFICIAL";
       setUsdOficial(oficial);
       setLoading(false);
     });
