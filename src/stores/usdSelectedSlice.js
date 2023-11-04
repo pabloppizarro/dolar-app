@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const selectedUsdSlice = createSlice({
-  name: "usdSelected",
+  name: "selectedUSD",
   initialState: {
     value: null,
   },
   reducers: {
-    select: (state, action) => {
+    selectUSD: (state, action) => {
       state.value = action.payload;
     },
   },
 });
 
-export const { select } = selectedUsdSlice.actions;
+export const { selectUSD } = selectedUsdSlice.actions;
 export default selectedUsdSlice.reducer;
